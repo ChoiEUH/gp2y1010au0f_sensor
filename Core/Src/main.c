@@ -106,11 +106,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-HAL_GPIO_WritePin(GPIOF,GPIO_PIN_12,RESET);
+GPIOF->ODR = 0;
 HAL_Delay(0.28);
 HAL_ADC_Start_IT(&hadc1);
 HAL_Delay(0.04);
-HAL_GPIO_WritePin(GPIOF,GPIO_PIN_12,SET);
+GPIOF->ODR = 0x1000;
 HAL_Delay(9.68);
 
 sprintf(uart,"%d\r\n",dust);
